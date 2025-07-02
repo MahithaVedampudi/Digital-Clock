@@ -1,0 +1,132 @@
+:root {
+    --gradient-1: #4776E6;
+    --gradient-2: #8E54E9;
+    --gradient-3: #FF6B6B;
+    --text-color: #ffffff;
+    --btn-text: #2c3e50;
+    --shadow: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2), var(--gradient-3));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.main-container {
+    width: 100%;
+    padding: 40px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.control-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.btn {
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.start-btn {
+    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    color: var(--btn-text);
+}
+
+.stop-btn {
+    background: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
+    color: var(--btn-text);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--shadow);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.clock-display {
+    font-size: 56px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    padding: 30px 50px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    box-shadow: 
+        inset 0 0 15px rgba(255, 255, 255, 0.1),
+        0 8px 32px var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    flex: 2;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 20px;
+    }
+    
+    .container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px;
+    }
+    
+    .control-panel {
+        flex-direction: row;
+        width: 100%;
+    }
+    
+    .btn {
+        flex: 1;
+        padding: 14px;
+    }
+    
+    .clock-display {
+        font-size: 42px;
+        padding: 20px 30px;
+        width: 100%;
+    }
+}
